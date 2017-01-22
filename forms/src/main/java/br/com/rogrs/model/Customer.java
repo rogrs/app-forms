@@ -1,17 +1,16 @@
 package br.com.rogrs.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
-public class Customer {
+public class Customer  extends AbstractPersistable<Long>{
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
-    private String firstName;
+
+	private static final long serialVersionUID = 1L;
+	
+	private String firstName;
     private String lastName;
 
     protected Customer() {}
@@ -25,13 +24,8 @@ public class Customer {
     public String toString() {
         return String.format(
                 "Customer[id=%d, firstName='%s', lastName='%s']",
-                id, firstName, lastName);
+                 firstName, lastName);
     }
-
-
-	public Long getId() {
-		return id;
-	}
 
 	public String getFirstName() {
 		return firstName;

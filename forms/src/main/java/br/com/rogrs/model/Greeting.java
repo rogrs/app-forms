@@ -1,28 +1,22 @@
 package br.com.rogrs.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
-public class Greeting {
+public class Greeting extends AbstractPersistable<Long> {
 
-	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private final Long id;
-    private final String content;
+	private static final long serialVersionUID = 1L;
 
-    public Greeting(Long id, String content) {
-        this.id = id;
-        this.content = content;
-    }
+	private final String content;
 
-    public Long getId() {
-        return id;
-    }
+	public Greeting(String content) {
 
-    public String getContent() {
-        return content;
-    }
+		this.content = content;
+	}
+
+	public String getContent() {
+		return content;
+	}
 }
