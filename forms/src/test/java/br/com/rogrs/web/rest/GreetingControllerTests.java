@@ -21,8 +21,6 @@ public class GreetingControllerTests {
     @Autowired
     private MockMvc mockMvc;
     
-    @Autowired
-    private GreetingController greetingController;
 
     @Test
     public void noParamGreetingShouldReturnDefaultMessage() throws Exception {
