@@ -21,6 +21,9 @@ public class GreetingController {
 
     @RequestMapping(GreetingController.BASE_URL)
     public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
+        
+
+        
         return new Greeting( String.format(template, name));
     }
     
