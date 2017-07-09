@@ -66,7 +66,7 @@ public class TodoController {
     }
 
     private List<TodoDTO> createDTOs(List<Todo> models) {
-        List<TodoDTO> dtos = new ArrayList<TodoDTO>();
+        List<TodoDTO> dtos = new ArrayList<>();
 
         for (Todo model: models) {
             dtos.add(createDTO(model));

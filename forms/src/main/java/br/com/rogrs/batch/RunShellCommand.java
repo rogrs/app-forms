@@ -17,8 +17,8 @@ public class RunShellCommand {
 
 	public CommandOutput execute(String command) {
 		CommandOutput output = new CommandOutput();
-		log.info("Executando o comando " + command.toString());
-		StringBuffer sb = new StringBuffer();
+		log.info(String.format("Executando o comando %s",command));
+		StringBuilder sb = new StringBuilder();
 
 		Process p;
 		try {
@@ -38,7 +38,6 @@ public class RunShellCommand {
 		} catch (Exception e) {
 			output.setMsgError(e.getMessage());
 			log.error("Erro na execução do comando  " + command, e);
-			e.printStackTrace();
 		}
 
 		return output;

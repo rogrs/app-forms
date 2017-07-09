@@ -20,7 +20,7 @@ public class ScheduledTasks {
 
     private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
 
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    private static final SimpleDateFormat DATEFORMAT = new SimpleDateFormat("HH:mm:ss");
 
     @Autowired
     private TaskRepository taskRepository;
@@ -41,14 +41,13 @@ public class ScheduledTasks {
 
     private void processar(final Task task) {
         try {
-            log.info("The time is now {}", dateFormat.format(new Date()));
+            log.info("The time is now {}", DATEFORMAT.format(new Date()));
            
             defineObjects.open();
             task.setStatus(StatusTask.PROCESS);
         } catch (Exception e) {
             log.error("Erro ao executar task "+task.getDescription(), e);
             task.setStatus(StatusTask.ERROR);
-            e.printStackTrace();
         }finally{
             taskRepository.saveAndFlush(task);
         }

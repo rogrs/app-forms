@@ -20,32 +20,30 @@ import org.springframework.stereotype.Service;
 @Service
 public class DefineObjects {
 
-    private static final Logger log = LoggerFactory.getLogger(DefineObjects.class);
+	private static final Logger log = LoggerFactory.getLogger(DefineObjects.class);
 
-   
+	public void open() {
 
-    public void open() {
+		try {
+			browse(new URL("http://code.google.com"));
 
-        try {
-            browse(new URL("http://code.google.com"));
+			ScreenRegion s = new DesktopScreenRegion();
 
-            ScreenRegion s = new DesktopScreenRegion();
+			URL imageURL = new URL("http://code.google.com/images/code_logo.gif");
+			Target imageTarget = new ImageTarget(imageURL);
 
-            URL imageURL = new URL("http://code.google.com/images/code_logo.gif");
-            Target imageTarget = new ImageTarget(imageURL);
+			ScreenRegion r = s.wait(imageTarget, 5000);
 
-            ScreenRegion r = s.wait(imageTarget, 5000);
+			Canvas canvas = new DesktopCanvas();
+			canvas.add().label("Hello World");
+			canvas.display(3);
 
-            Canvas canvas = new DesktopCanvas();
-            canvas.add().label("Hello World");
-            canvas.display(3);
+			Mouse mouse = new DesktopMouse();
+			mouse.click(r.getCenter());
 
-            Mouse mouse = new DesktopMouse();
-            mouse.click(r.getCenter());
-
-        } catch (MalformedURLException e) {
-            log.error("Erro ao abrir browser " + e.getMessage(), e);
-        }
-    }
+		} catch (MalformedURLException e) {
+			log.error("Erro ao abrir browser " + e.getMessage(), e);
+		}
+	}
 
 }
