@@ -38,7 +38,6 @@ public class RunShellCommand {
 		} catch (Exception e) {
 			output.setMsgError(e.getMessage());
 			log.error("Erro na execução do comando  " + command, e);
-			e.printStackTrace();
 		}
 
 		return output;
