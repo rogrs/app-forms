@@ -16,6 +16,7 @@
 
 	<modules>
 		<module>forms</module>
+                <module>omega</module>
 		<module>uploading</module>
 	</modules>
 	<packaging>pom</packaging>

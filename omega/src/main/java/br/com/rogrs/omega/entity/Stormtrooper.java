@@ -7,23 +7,20 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 public class Stormtrooper extends AbstractPersistable<Long> {
 
-
 	private static final long serialVersionUID = 1L;
 	private String planetOfOrigin;
-    private String species;
-    private String type;
+	private String species;
+	private String type;
 
-    public Stormtrooper() {
-        // empty to allow for bean access
-    }
+	public Stormtrooper() {
+	}
 
-    public Stormtrooper(String planetOfOrigin, String species, String type) {
+	public Stormtrooper(String planetOfOrigin, String species, String type) {
 
-        this.planetOfOrigin = planetOfOrigin;
-        this.species = species;
-        this.type = type;
-    }
-
+		this.planetOfOrigin = planetOfOrigin;
+		this.species = species;
+		this.type = type;
+	}
 
 	public String getPlanetOfOrigin() {
 		return planetOfOrigin;
