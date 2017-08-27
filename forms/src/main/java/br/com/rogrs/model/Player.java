@@ -1,10 +1,12 @@
 package br.com.rogrs.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
+@Table(name="PLAYER")
 public class Player extends AbstractPersistable<Long>{
 
 

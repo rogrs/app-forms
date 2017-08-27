@@ -1,14 +1,18 @@
 package br.com.rogrs.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
+@Table(name="CUSTOMER")
 public class Customer extends AbstractPersistable<Long> {
 
     private static final long serialVersionUID = 1L;
 
+    @Column(name="FIRSTNAME")
     private String firstName;
     private String lastName;
 

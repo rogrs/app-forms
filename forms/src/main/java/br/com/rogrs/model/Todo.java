@@ -16,7 +16,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 
 @Entity
-@Table(name="todos")
+@Table(name="TODO")
 public class Todo {
 
     public static final int MAX_LENGTH_DESCRIPTION = 500;
